@@ -1,13 +1,28 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import { styles } from '../style';
 
 const CityDetails = ({ route }) => {
-  const { city } = route.params; // Obtém os parâmetros passados na navegação
+  const { city } = route.params || {}; // Certifique-se de inicializar com um objeto vazio
+
+  if (!city) {
+    // Trate o caso em que city é nulo ou indefinido
+    return (
+      <View style={styles.container}>
+        <Text>Nenhuma cidade encontrada</Text>
+      </View>
+    );
+  }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{city.city}</Text>
-      <Text>{city.description}</Text>
+    <View style={styles.container}>
+      <View style={styles.carouselSlide}>
+        <Text style={styles.slideText}>
+          {city.city}
+          {"\n"}
+          {city.description}
+        </Text>
+      </View>
     </View>
   );
 };
