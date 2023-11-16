@@ -28,3 +28,4 @@ const CityDetails = ({ route }) => {
 };
 
 export default CityDetails;
+
