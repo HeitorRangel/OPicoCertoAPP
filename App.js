@@ -12,7 +12,7 @@ export default function App() {
       navigation.navigate('Home');
     }, 3000); // Navegar para "Home" após 3 segundos (3000 milissegundos)
   }, [navigation]);
-
+//incluir navegação para a pagina de cada cidade
   return (
     <NavigationContainer>
       <Routes />
